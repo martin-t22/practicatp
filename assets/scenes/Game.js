@@ -23,6 +23,8 @@ export default class Game extends Phaser.Scene {
 
     this.isWinner = false;
     this.isGameOver = false;
+
+    this.Timer=30;
   }
 
   preload() {
@@ -80,6 +82,15 @@ export default class Game extends Phaser.Scene {
       fontSize: "32px",
       fill: "#1af",
     });
+
+    //agrego eventi temporizador 
+    this.time.addEvent({
+      delay: 1000,
+      callback: this.addTimer,
+      callbackScope: this,
+      loop: this,
+    });
+
   }
 
   update() {
@@ -133,8 +144,23 @@ export default class Game extends Phaser.Scene {
     ) {
        this.isWinner = true;
     }
+    //add variable desendente
+   
   }
 
+  addTimer () {
+    this.Timer --
+    console.log (this.Timer)
+    this.TimerText = this.add.text( 700, 20, "timer:"+ this.Timer, {
+      fontSize: "20px",
+      fill: "#1af",
+    });
+
+    if ( this.Timer <= 0)
+    { 
+      this.isGameOver = true;
+    }
+  }
   addshape() {
     console.log(new Date());
 

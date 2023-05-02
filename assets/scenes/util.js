@@ -3,7 +3,7 @@ const PLAYER_MOVEMENTS = {
     y: 300,
 }
 
-const SHAPE_DELAY = 3000;
+const SHAPE_DELAY = 1000;
 const TRIANGULO = "Triangulo";
 const CUADRADO = "Cuadrado";
 const ROMBO = "Rombo";
